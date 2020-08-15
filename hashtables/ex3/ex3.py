@@ -4,6 +4,17 @@ def intersection(arrays):
     """
     # Your code here
 
+    result = {}
+    for nums in arrays:
+        for num in nums:
+            if num not in result:
+                result[num] = num
+            else:
+                return num
+    for key, value in result.items():
+        if value == 2:
+            return key
+
     return result
 
 

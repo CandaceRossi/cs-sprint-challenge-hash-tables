@@ -3,17 +3,17 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
-
-    result = {}
+    corr = {}
+    result = []
     for nums in arrays:
         for num in nums:
-            if num not in result:
-                result[num] = num
+            if num in corr:
+                corr[num] += 1
             else:
-                return num
-    for key, value in result.items():
-        if value == 2:
-            return key
+                corr[num] = 1
+
+            if num not in result and corr[num] > 1:
+                result.append(num)
 
     return result
 

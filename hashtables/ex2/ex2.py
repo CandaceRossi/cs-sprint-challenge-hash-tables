@@ -11,36 +11,20 @@ def reconstruct_trip(tickets, length):
     """
     # Your code here
     solution = {}
-    l = len(tickets)
-    route = []
-    source = " "
-    destination = " "
-    for ticket in tickets:
-        if ticket not in solution:
-            solution[ticket] = []
+    # l = len(tickets)
+    route = [None] * length
+    # source = " "
+    # destination = " "
+    for ticket in range(length):
+        print(route[ticket])
+        if tickets[ticket].source == "NONE":
+            print(tickets[ticket].source)
+            route[0] = tickets[ticket].destination
 
-        if ticket.source == None:
-            route.append(ticket)
-        if ticket.source == None:
-            route.append(ticket)
+        solution[tickets[ticket].source] = tickets[ticket].destination
 
-    for i in range(l - 1):
-        current_ticket = tickets[i]
-        route[current_ticket].append(tickets[i].destination)
-    #     if ticket.destination == None:
-    #         route.append(ticket.items())
-    #     else:
-    #         route.append(ticket.items())
-    # for i in range(l - 1):
-    #     current_ticket = ticket[i]
-    #     solution[current_ticket].append(ticket[i])
-    # for source, destination in tickets:
-    #     if tickets[source] == None:
-    #         route.append(tickets[source].items())
-    #     if
-    # print(ticket[source])
-    # elif:
-    #     tickets[destination +1]
-    # else route.append(tickets[destination] == None)
-
+    for ticket in range(length):
+        if route[ticket-1]:
+            print(route[ticket-1])
+            route[ticket] = solution[route[ticket-1]]
     return route
